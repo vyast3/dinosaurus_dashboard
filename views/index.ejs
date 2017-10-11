@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+       
+    </head>
+    <body>
+         <a href="/new">Create a new Dinosaurus</a>
+         <% for(x in data) {  %>
+            <hr>
+          <h3>Name: <a href="/show/<%= data[x]._id %>"> <%= data[x].name  %></a></h3><br>
+          <h3>  Height:  <%= data[x].height %> feet</h3><br>
+          <h3>  Weight:  <%= data[x].weight %> tones</h3>
+          <a href="/edit/<%= data[x]._id %>">edit</a>
+          <form action="/destroy/<%= data[x]._id %>" method="post">
+            <input type="submit" value="Delete">
+        </form>
+          <hr>
+        <% } %>
+    </body>
+</html>
